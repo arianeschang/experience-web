@@ -399,33 +399,13 @@ html
  
           h3(style='font-family:Roboto;font-weight:400;font-size:20px;line-height:0px') Poetry
           h3(style='font-size:16px')
-            a(onclick="showMore(this, 'poem1')" class="nestedMore") Various States of Undress 
+            a(onclick="showMore(this, 'undress')" class="nestedMore") Various States of Undress 
             | | 
             a(onclick="showMore(this, 'procedure')" class="nestedMore") Procedure 
             | | 
             a(onclick="showMore(this, 'picking')" class="nestedMore") Picking Up The Pieces 
 
-          h3(style='font-family:Roboto;font-weight:400;font-size:20px')
-            | Creative Non-Fiction
-
-          h3(style='font-size:16px')
-            a(onclick="showMore(this, 'poem1')" class="nestedMore") Various States of Undress 
-            | | 
-            a(onclick="showMore(this, 'poem2')" class="nestedMore") Procedure 
-            | | 
-            a(onclick="showMore(this, 'poem3')" class="nestedMore") Picking Up The Pieces 
-
-          h3(style='font-family:Roboto;font-weight:400;font-size:20px')
-            | Fiction
-
-          h3(style='font-size:16px')
-            a(onclick="showMore(this, 'poem1')" class="nestedMore") Various States of Undress 
-            | | 
-            a(onclick="showMore(this, 'poem2')" class="nestedMore") Procedure 
-            | | 
-            a(onclick="showMore(this, 'poem3')" class="nestedMore") Picking Up The Pieces 
-
-            #picking(class='nestedMore moreTexts')
+          #picking(class='nestedMore moreTexts')
               p(style='font-size:14px')
                   |Once we march back to our real lives, <br>
                   |At last we’ll meet ourselves again. <br>
@@ -454,7 +434,6 @@ html
                   <br>
 
                 
-
             #procedure(class='nestedMore moreTexts')
               p(style='font-size:14px')
                 | It's the second time this week <br>
@@ -496,13 +475,40 @@ html
                 <br>
                 | This time, for now. 
 
+            #undress(class='nestedMore moreTexts')
+              | Lights shine bright, walls always white <br>
+              | Take this patterned gown, she asks you to undress  <br>
+               <br>
+              | Now you can’t see, lights dimmed by expectation <br>
+              | You pull back in hesitation, he asks you to undress <br>
+               <br>
+              | A familiar face peers over a bowl of soup  <br>
+              | “How are you, really?”, they ask you to undress <br>
+          
+
+
+
+          h3(style='font-family:Roboto;font-weight:400;font-size:20px')
+            | Creative Non-Fiction
+
+          h3(style='font-size:16px')
+            a(onclick="showMore(this, 'poem1')" class="nestedMore") Various States of Undress 
+            | | 
+            a(onclick="showMore(this, 'poem2')" class="nestedMore") Procedure 
+            | | 
+            a(onclick="showMore(this, 'poem3')" class="nestedMore") Picking Up The Pieces 
+
+          h3(style='font-family:Roboto;font-weight:400;font-size:20px')
+            | Fiction
+
+          h3(style='font-size:16px')
+            a(onclick="showMore(this, 'poem1')" class="nestedMore") Various States of Undress 
+            | | 
+            a(onclick="showMore(this, 'poem2')" class="nestedMore") Procedure 
+            | | 
+            a(onclick="showMore(this, 'poem3')" class="nestedMore") Picking Up The Pieces 
 
             
-            #poem3(class='nestedMore moreTexts')
-              | this is another poem
-
-
-          
 
         #physical(style='display:none;')
           h3(style='font-family:Roboto;font-weight:300;font-size:22px')
