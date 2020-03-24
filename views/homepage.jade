@@ -1,0 +1,506 @@
+doctype html
+html
+  head
+    link(rel='stylesheet', href='/css/index.css')
+    link(rel='stylesheet', href='//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css')
+    script(src='//code.jquery.com/jquery-1.10.2.js')
+    script(src='//code.jquery.com/ui/1.11.4/jquery-ui.js')
+    script(src='/js/dialog.js')
+
+    script.
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-86332171-2', 'auto');
+      ga('send', 'pageview');
+
+      function go(e, string, class_name){
+        html = document.getElementById(string).innerHTML;
+        document.getElementById("content").innerHTML = html;
+
+        ga('send', 'event', string, 'clicked');
+
+
+        if (string == 'av'){
+          var iframe = document.getElementById("my-deferred-iframe");
+          iframe.src = "https://www.youtube.com/embed/qCGzR2_JqUA?rel=0&amp;controls=0&amp;showinfo=0";
+
+          var iframe2 = document.getElementById("my-deferred-iframe2");
+          iframe2.src = "https://open.spotify.com/embed/user/arianeschang/playlist/0SyC5ab2YBOWdfN9GaCnDY";
+         
+          var iframe3 = document.getElementById("my-deferred-iframe3");
+          iframe3.src = "https://open.spotify.com/embed/user/arianeschang/playlist/7DkUR9FhF3kADa8lQv1QYJ";
+          
+          var iframe4 = document.getElementById("my-deferred-iframe4");
+          iframe4.src = "https://open.spotify.com/embed/user/arianeschang/playlist/5BiUxe5arkrj9CKpoFwi0q";
+        }
+
+
+
+        if (class_name == 'side'){
+          var side_links = document.getElementsByClassName('side');
+          for (i = 0; i < side_links.length; i++) {
+              side_links[i].style.color = "black";
+          }
+          e.style.color = "powderblue";
+        }
+        else if (class_name == 'title'){
+          var side_links = document.getElementsByClassName('side');
+          for (i = 0; i < side_links.length; i++) {
+              side_links[i].style.color = "black";
+          }
+        }
+
+      }
+
+      function showMessage(){
+        html = document.getElementById("content").innerHTML;
+        var html_to_insert = "<h3> Thanks for your message :) I probably received it. </h3>"
+        ga('send', 'event', 'message', 'clicked');
+
+        document.getElementById("content").insertAdjacentHTML('beforeend', html_to_insert);
+      }
+
+      function getStyle(elem, cssprop, cssprop2){
+       if (elem.currentStyle) {
+         return elem.currentStyle[cssprop];
+       } 
+       else if (document.defaultView && document.defaultView.getComputedStyle) {
+              return document.defaultView.getComputedStyle(elem, null).getPropertyValue(cssprop2);
+
+       } else {
+         return null;
+       }
+      }
+
+      function showMore(e, string, class_name){
+        var elem = document.getElementById(string);
+        ga('send', 'event', string, 'clicked');
+
+        var style = getStyle(elem,"display", "display");
+
+        if (style == "none"){
+
+          if (class_name == 'av_menu'){
+            document.getElementById('largeImg').style.display="none"
+            document.getElementById('playlists').style.display="none"
+            document.getElementById('video').style.display="none"
+
+            var links = document.getElementsByClassName('themes');
+            for (i = 0; i < links.length; i++) {
+                links[i].style.color = "black";
+            }
+            e.style.color = "powderblue";
+          }
+
+          if (class_name == 'music'){
+            document.getElementById('playlist1').style.display="none"
+            document.getElementById('playlist2').style.display="none"
+            document.getElementById('playlist3').style.display="none"
+
+            var links = document.getElementsByClassName('musicLinks');
+            for (i = 0; i < links.length; i++) {
+                links[i].style.color = "black";
+            }
+            e.style.color = "powderblue";
+          }
+
+          document.getElementById(string).style.display="block";
+  
+        }
+
+        if (style == "block"){
+          document.getElementById(string).style.display="none";
+        }
+
+      }
+
+      
+
+
+
+
+
+  body(onload="go(this, 'intro')")
+    .header
+      
+
+    .menu
+      h1 
+        a(class = 'title' onclick="go(this, 'intro', 'title')" href='#') an introduction to an experience of cancer
+      h2
+          a(class = 'side' id='side1' onclick="go(this, 'theoretical', 'side')" href='#') theoretical<br>
+          a(class = 'side' id='side2' onclick="go(this, 'av', 'side')" href='#') audio-visual<br>
+          a(class = 'side' id='side3' onclick="go(this, 'emotional', 'side')" href='#') thoughtful<br>
+          a(class = 'side' id='side4' onclick="go(this, 'physical', 'side')" href='#') physical<br>
+
+      h2
+        a(class = 'side' id='side5' onclick="go(this, 'contact', 'side')" href='#') talk to me
+
+    .main
+        #content(style='display:block;')
+
+        #intro(style='display:none;')
+          h3
+            | Hello!  
+          p
+            | Welcome to a few pieces, out of many, of my process of sense-making through an experience of cancer. 
+            | <br><br>
+            | If you are feeling confused, I suggest you begin with 
+            a(class = 'embedded' onclick='go(this, theoretical)' href='#') I. theoretical
+            |  as it provides a frame of reference. <br><br>
+
+            | It is important for me to acknowledge that this is only my experience and my process of sense-making of my experience. I exist at a certain intersection of gender, class, race, ability, etc. That intersection is unique and shapes my perspective. Everyone experiences trauma differently and heals in their own way. There is no right or wrong way to heal, only your way.
+
+        #theoretical(style='display:none;')
+         
+          h3(style='font-size:24px')
+              a(href='#' class = 'themes' onclick="showMore(this, 'what')") What? <br>
+          #what(style='display:none;')
+            p
+              | A puzzle piece that represents my exploration of the many questions that cropped up through this experience. <br> 
+            p(style='font-size:14px')
+              | Why does everyone keep calling me strong / a survivor / inspirational and why does it bother me? <br>
+              | What is trauma, what forms does it take, and is it, to any extent, socially constructed?  <br>
+              | How does race, class, gender, geography, ability, etc. mediate the experience of trauma and illness?<br>
+              | How do we negotiate bodily autonomy in the face of medical invasion?<br>
+              | What can the hospital environment teach us about what we value as a society?<br>
+              | How does religion fit into all this?<br>
+              | How do other cultures react to illness and how can this inform us about our own hegemonic discourses?<br>
+              | What are the benefits and harms of online communities in dealing with trauma? <br>
+
+            p
+              | I have compiled the resources I found helpful in exploring these questions and shaping a worldview.
+
+
+          h3(style='font-size:24px')
+              a(href='#' class = 'themes' onclick="go(this, 'theoretical2')") Theme I: Resilience and Strength in 'Survivorship' <br>
+              a(href='#' class = 'themes' onclick="go(this, 'theoretical3')") Theme II: Cancer as a Metaphor, War and Peace <br>
+              a(href='#' class='themes' onclick="go(this, 'theoretical4')") Theme III:  Embodiment, Objectification and Relationships with the Body in Illness <br>
+              a(href='#' class='themes' onclick="go(this, 'theoretical5')") Theme IV:  Hospital as Heterotopia <br>
+              a(href='#' class='themes' onclick="go(this, 'theoretical6')") Theme V:  Mediated Access to Healthcare <br>
+              a(href='#' class='themes' onclick="go(this, 'theoretical7')") Theme VI:  Religion, Spirituality and Coping <br>
+              a(href='#' class='themes' onclick="go(this, 'theoretical8')") Theme VII:  Complexities of Online Communities <br>
+
+        
+        #theoretical2(style='display:none;')
+          h3(style='font-size:28px')
+            | Theme I: Resilience and Strength in 'Survivorship'
+          p
+            i 
+              | “As a cultural framework, the survivor represses the formidable contradiction produced by the institutions of modernity, that suffering is central to liberal culture (because it is its removal that implicitly justifies the liberal project) yet intolerable because it points to the failure of our institutions to prevent or combat suffering… The survivor is a pertinent embodiment of the individual’s success, not the society’s failure. By contrast, the victim… may act as a far more effective reminder of the social sources of suffering and its solutions”. - Shani Orgad
+              <br><br>
+              | “By ignoring or under emphasizing the vexing issue of environmental causes, the breast cancer cult turns women into dupes of what could be called the Cancer Industrial Complex: the multinational corporate enterprise that with the one hand doles out carcinogens and disease and with the other offers expensive, semi-toxic pharmaceutical treatments.” - Barbara Ehrenreich <br> <br> 
+            | The “survivor” is a visible, desirable cultural notion whose hegemony de-legitimizes the experiences of victims and the dead. Those that experience their traumas with resilience and recount their stories of struggle and success are rewarded, leaving those who struggle without success behind. In the world of cancer, this discourse surrounding the strong “survivor” who “fights” “bravely” implies that those that do not live must have not fought hard enough, thus denigrating the dying. This process also moves the attention away from the causes of cancer, which may be largely environmental and therefore very political (re: lawsuit of lymphoma patients against Monsanto), and places the responsibility on the individual to improve their own mental health. Discourses of blame, anger, sadness, etc. are not seen as valid unless they are stepping stones on the way to acceptance, resilience and growth.
+
+            #moreQs(style='display:block;')
+              h5
+                a(href='#' class = 'more' onclick="showMore(this, 'more2')") This is interesting, I want to read more.
+
+              h5
+                a(href='#' class = 'more' onclick="go(this, 'theoretical')") This is not interesting, I want to go back. 
+
+            #more2(class = 'moreTexts')
+                p
+                  | I was first introduced to this idea that 'resilience' may not be some holy grail of existence through a class where we read a piece by Robin James. She talks about this hegemonic ideology that prescribes that self-actualization occurs through the experience of crisis, some process of recovery, and personal life lessons one extracts from the experience. There is therefore a “resilience discourse” in which the process of overcoming adversity is broadcast for the world to consume. Those that follow this pattern are then rewarded with recognition (re: When Breath Becomes Air -- Paul Kalanithi). This kind of discourse, however, moves the locus of attention away from the perpetrators of violence and towards the person suffering, placing an expectation on the victim to be responsible for their issues. Those who are able to triumph over their adversity are then used as evidence that the adversity does not exist (e.g. “racism doesn’t exist in America because Obama was black”, “companies don't have a problem, women just need to “lean in” a la Sheryl Sandberg”, etc.). <br><br>
+                  | As soon as I was diagnosed with cancer, this idea of resilience discourse came back in full force. All of a sudden I was hearing from left and right about my “strength”, about how I was going to “fight”, how I needed to “stay positive”. I knew my discomfort with all of this was tangentially related to this idea of resilience, so I went searching for other people’s thoughts. Here is a more detailed overview of what I learned: <br><br>
+
+                  | From Orgad's 
+                  a(onclick="showMore(this, 'nestedMore10')" class="nestedMore") "The Survivor in Contemporary Culture and Public Discourse: A genealogy" 
+                
+                  #nestedMore10(class="nestedMore10 moreTexts")
+                    ul
+                      li(class='bullets')
+                        | The "survivor" crops up in discourses far and wide, including the Holocaust survivor, in psychotherapy, in feminist discourses of sexual abuse, on reality television, and in talks about cancer. Interestingly enough, one of the most recommended books to me by doctors and librarians was "Man's Search for Meaning" by Victor E. Frankl. This is by a holocaust survivor who explores the meaning of life. I find it so interesting that this odd parallel between the experience of the holocaust survivor and the cancer survivor is reproduced in many ways. <br>
+                      li(class='bullets')
+                        | Agency, empowerment and self-reliability deflects discussion away from the responsibilities of the community, the state, and society <br>
+                      li(class='bullets')
+                        | “Survivorship is legitimate and desirable as long as it is devoid of anger or criticism, as long as agency is directed to harmonious and peaceful forums and activities.” <br>
+                      li(class='bullets')
+                        | Becoming a survivor is a process that requires public recognition; an articulation about it is necessary <br>
+                      li(class='bullets')
+                        |Delegitimizing the “victim” also de-legitimizes the following 
+                      ul
+                        li(class='bullets')
+                            | Blame, anger and demand for social responsibility
+                        li(class='bullets')
+                            | Dependence of individuals on society and the collective 
+                        li(class='bullets')
+                            | Silence as a viable and legitimate choice
+                      li(class='bullets')
+                       | “The victim/survivor formulation… assumes that one can simply overcome misfortune by adopting a survivor “psyche”, and being equipped with a set of psychotherapeutic tools, self-management techniques, and a generous dose of optimism. It fails to recognize that in order to achieve this transformation to survivor, one requires resources which are not equally available and distributed… Thus, victims need more than just their “selves” to become survivors”
+                
+                p
+                  | From Bock’s 
+                  a(onclick="showMore(this, 'nestedMore11')" class="nestedMore") "Staying Positive: Women’s Illness Narratives and the Stigmatized Vernacular" <br>
+
+                  #nestedMore11(class="nestedMore11 moreTexts")
+                    ul
+                      li(class='bullets')
+                        | Gendered understandings of emotions play a role in how women’s experiences of illnesses are tellable and untellable
+                      li(class='bullets')
+                        | Expectations of positive thinking, or the “tyranny of cheer” is linked to cultural ideologies of what it means to be a “good woman”. The “correct” and tellable experience of cancer is one in which negative emotions are kept under control.
+                      li(class='bullets')
+                        | Fibromyalgia is a mysterious illness that mostly affects women and that is not considered legitimate enough to study. Patients are typically doubted when they tell their story as it is a disease that is not very publicly known. The visibility of cancer may therefore be a good and bad thing. While people tend to assume they know what an experience of cancer is like, there is no doubt of its legitimacy.
+                      li(class='bullets')
+                        | “Happiness is a kind of cultural capital instead of merely a description of some emotional state, we can see a clear relationship between the desire for happiness and being a good, as opposed to a disruptive subject”
+
+            
+                p
+                  | From Ehrenreich’s 
+                  a(onclick="showMore(this, 'nestedMore12')" class="nestedMore")  Ehrenreich’s “Welcome to Cancerland”<br>
+
+                  #nestedMore12(class="nestedMore12 moreTexts")
+                    ul
+                      li(class='bullets')
+                        | A woman’s first-hand account of breast cancer and the “cult of pink kitsch”
+                      li(class='bullets')
+                        | “‘Awareness’ beats secrecy and stigma of course, but I can’t help noticing that the existential space in which a friend has earnestly advised me to “confront my mortality” bears a striking resemblance to the mall.” (in reference to the pink culture of breast cancer)
+                      li(class='bullets')
+                        | “suspicion should focus on environmental carcinogens, such as plastics, pesticides, and the industrial run-off in our groundwater…. The inexorable increase of the disease in industrialized nations further hints at environmental factors, as does the fact that women migrants to industrialized countries quickly develop the same breast cancer rates as those that are native born. Emphasis on possible ecological factors, which is not shared by groups such as Komen and the American Cancer Society puts the feminist breast-cancer activists in league with other rambunctious social movements - environmental and anti-corporate. But today these are discordant voices in a general chorus of sentimentality and good cheer. It is the very blandness of breast cancer, that makes it an attractive object of corporate charity. .. Breast cancer provides a way of doing something for women, without being feminist. 
+                      li(class='bullets')
+                        | “The effect of this relentless brightsiding is to transform breast cancer into a rite of passage- not an injustice or a tragedy to rail against, but a normal marker in the life cycle, like menopause or graying hair”
+                      li(class='bullets')
+                        | “In the harshest judgement, the breast-cancer cult serves as an accomplice in global poisoning-- normalizing cancer, prettying it up, even presenting it, perversely, as a positive and enviable experience”
+                      li(class='bullets')
+                        | “The mindless triumphalism of “survivorhood” denigrates the dead and the dying. Did we who live “fight” harder than those who’ve died? Can we claim to be “braver”, better than the dead? And why is there no room in this cult for some gracious acceptance of death, when the time comes, which it surely will, through cancer or some other misfortune?”
+        
+                    
+                  a(onclick="showMore(this, 'biblio1')" class="nestedMore")  Because none of these are my own thoughts<br> <br>
+                  #biblio1(class="biblio1 moreTexts")
+                    p
+                      | James, Robin. 
+                      i 
+                        a(href="http://opencuny.org/womenmedia/files/2015/09/BookScanCenter.pdf" target="_blank") Resilience & melancholy: Pop music, feminism, Neoliberalism.
+                      | John Hunt Publishing, 2015.
+                      <br><br>
+
+                      | Orgad, Shani. 
+                      a(href="http://www.tandfonline.com/doi/abs/10.1080/10714420902921168" target="_blank") The survivor in contemporary culture and public discourse: A genealogy." 
+                      | The Communication Review 12.2 (2009): 132-161.
+                      <br><br>
+
+                      | Garrison, Kristen. 
+                      a(href="http://dsq-sds.org/article/view/52/52" target="_blank") The personal is rhetorical: War, protest, and peace in breast cancer narratives." 
+                      | Disability Studies Quarterly 27.4 (2007).
+                      <br><br>
+
+                      | Bock, S. 
+                      a(href="http://hcs.pitt.edu/ojs/index.php/hcs/article/download/125/180" target="_blank") Staying Positive: Women's illness narratives and the stigmatized vernacular." 
+                      | Health, Culture and Society 5.1 (2013): 150.
+                      <br><br>
+
+                      | Ehrenreich, Barbara. 
+                      a(href="http://barbaraehrenreich.com/cancerland/" target="_blank") Welcome to cancerland." 
+                      | Harper’s Magazine 303.1818 (2001): 43-53.
+
+                  a(onclick="showMore(this, 'thoughts1')" class="nestedMore")  But these are my thoughts <br>
+                  #thoughts1(class="thoughts1 moreTexts")
+                    p
+                      | I feel like you could say that this website in itself is my own articulation or story of cancer, and I am therefore participating in "resilience discourse". That is, I am creating a display of things for others to consume in order to reassure them and myself that this has been a "positive" experience full of growth. This definitely might be the case, and something I continue to be aware of in my attempt to present an experience without commodifying myself. <br> I also feel like it's important to explain that I have no problem with the "survivor" framework insofar as it is empowering to some; rather my problem lies with the hegemony of this framework. I wish we could treat each person as an individual and consider their unique needs and perspectives in conversation instead of using one size fits all language. It took me quite a while, lots of thinking, and lots of explanation to articulate to people that I preferred if they didn't use this language. I completely understand why people use it, as it's the only words we know to use. If the roles were reversed, I would certainly use that language as well. I'm so happy and lucky that the people who I have spoken to about this have respected my wishes.
+          div
+            h5
+              a(href='#' class = 'arrows' onclick="go(this, 'theoretical')")< 
+
+         #theoretical3(style='display:none;')
+          h3
+            | Theme II: Cancer as a Metaphor, War and Peace
+          div
+            h5
+              a(href='#' class = 'arrows' onclick="go(this, 'theoretical')")< 
+
+          #theoretical4(style='display:none;')
+            h3
+              | Theme III: Embodiment, Objectification and Relationships with the Body in Illness
+            div
+              h5
+                a(href='#' class = 'arrows' onclick="go(this, 'theoretical')")< 
+  
+          #theoretical5(style='display:none;')
+            h3
+              | Theme IV:  Hospital as Heterotopia
+            div
+              h5
+                a(href='#' class = 'arrows' onclick="go(this, 'theoretical')")< 
+          #theoretical6(style='display:none;')
+            h3
+              | Theme V:  Mediated Access to Healthcare
+            div
+              h5
+                a(href='#' class = 'arrows' onclick="go(this, 'theoretical')")< 
+          #theoretical7(style='display:none;')
+            h3
+              | Theme VI:  Religion, Spirituality and Coping
+            div
+              h5
+                a(href='#' class = 'arrows' onclick="go(this, 'theoretical')")< 
+          #theoretical8(style='display:none;')
+            h3
+              | Theme VII:  Complexities of Online Communities
+            div
+              h5
+                a(href='#' class = 'arrows' onclick="go(this, 'theoretical')")< 
+
+
+
+        #av(style='display:none;')
+          h3(style='font-size:36px')
+            a(href='#' class = "themes" onclick="showMore(this, 'largeImg', 'av_menu')") Collage 
+            | | 
+            a(href='#' class = "themes" onclick="showMore(this, 'playlists', 'av_menu')")  Music 
+            | | 
+            a(href='#' class = "themes" onclick="showMore(this, 'video', 'av_menu')")  Video
+
+          #largeImg(style='display:none;')
+            <img id="myImgLG" class = "collage" src="photos/collage1.jpg" width="100%">
+         
+          #playlists(style='display:none;')
+            h3(style='font-size:22px')
+              | Three playlists for my three alternating moods. <br>
+
+            h3(style='font-size:16px')
+              a(onclick="showMore(this, 'playlist1', 'music')" class="musicLinks") 1. im alive (!!)  
+              | |  
+              a(onclick="showMore(this, 'playlist2', 'music')" class="musicLinks") 2. i miss my life  
+              | |  
+              a(onclick="showMore(this, 'playlist3', 'music')" class="musicLinks") 3. what is happening <br>
+
+
+              #playlist1(style='display:none;')
+                <iframe id="my-deferred-iframe2" src="about:blank" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
+
+
+              #playlist2(style='display:none;')
+                <iframe id="my-deferred-iframe3" src="about:blank" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
+
+
+
+              #playlist3(style='display:none;')
+                <iframe id="my-deferred-iframe4" src="about:blank" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
+
+
+
+          #video(style='display:none;')
+            <iframe width="560" height="315" id="my-deferred-iframe" src="about:blank" frameborder="0" allowfullscreen></iframe>
+
+              
+
+
+
+
+        
+
+
+
+
+        #emotional(style='display:none;')
+          h3(style='font-family:Roboto;font-weight:300;font-size:20px')
+            | Results from a creative writing class. <br>
+          h3(style='font-family:Roboto;font-weight:400;font-size:20px;line-height:0px') Poetry
+          h3(style='font-size:16px')
+            a(onclick="showMore(this, 'poem1')" class="nestedMore") Various States of Undress 
+            | | 
+            a(onclick="showMore(this, 'poem2')" class="nestedMore") Procedure 
+            | | 
+            a(onclick="showMore(this, 'poem3')" class="nestedMore") Picking Up The Pieces 
+
+          h3(style='font-family:Roboto;font-weight:400;font-size:20px')
+            | Creative Non-Fiction
+
+          h3(style='font-size:16px')
+            a(onclick="showMore(this, 'poem1')" class="nestedMore") Various States of Undress 
+            | | 
+            a(onclick="showMore(this, 'poem2')" class="nestedMore") Procedure 
+            | | 
+            a(onclick="showMore(this, 'poem3')" class="nestedMore") Picking Up The Pieces 
+
+          h3(style='font-family:Roboto;font-weight:400;font-size:20px')
+            | Fiction
+
+          h3(style='font-size:16px')
+            a(onclick="showMore(this, 'poem1')" class="nestedMore") Various States of Undress 
+            | | 
+            a(onclick="showMore(this, 'poem2')" class="nestedMore") Procedure 
+            | | 
+            a(onclick="showMore(this, 'poem3')" class="nestedMore") Picking Up The Pieces 
+
+            #poem1(class='nestedMore moreTexts')
+              | this is a poem
+
+            #poem2(class='nestedMore moreTexts')
+              p(style='font-size:14px')
+                | It's the second time this week <br>
+                | that I've sat on this high chair. <br>
+                | Asked for details about her life, <br>
+                | so I don't think about my own. <br>
+                <br>
+                | But then it bares its pointed end,<br>
+                | conspiring with sterile friends.<br>
+                | Cotton pads and plastic tubes,<br>
+                | ready for their marching orders. <br>
+                <br>
+                | Words tumble from my mouth.<br>
+                | I think there was a question there.<br>
+                | Desperate for a long answer,<br>
+                | For a few more moments to myself. <br>
+                <br>
+                | She looks at me with her reply,<br>
+                | but a hand picks up the shiny skewer. <br>
+                | I gasp -- she can multitask. <br>
+                <br>
+                | It flies towards my skin<br>
+                | finds a point where I end<br>
+                | and air begins.<br>
+                <br>
+                | A stab, a pinch, a spurt of red<br>
+                | Look up <br>
+                | Look left<br>
+                | Look right<br>
+                | Not down<br>
+                <br>
+                | Look up<br>
+                | Look left<br>
+                | Look right<br>
+                | Not down<br>
+                <br>
+                <br>
+                | Is it over?<br>
+                <br>
+                | This time, for now. 
+
+
+            
+            #poem3(class='nestedMore moreTexts')
+              | this is another poem
+
+
+          
+
+        #physical(style='display:none;')
+          h3(style='font-family:Roboto;font-weight:300;font-size:22px')
+            | Results from a contemporary dance class. 
+            
+
+        #contact(style='display:none;') 
+
+          form(action="https://docs.google.com/forms/d/e/1FAIpQLSdAN3gi_TC8k6XWjr0zAtC4t4qpaczwahtQd0Sk5Mix4RMY8A/formResponse" target="no-target")
+            h3
+              label(for="thoughts") What do you think? I am curious. <br><br>
+              textarea(name="entry.1245971644" type="text" id="thoughts" rows="5" cols="100")
+              <br><br><br>
+
+              | Are you a robot?  What is 2 + 2 ? <br> <br>
+              input(type="radio" name="entry.1028411720" id="1" value="1")
+              label(for="1") 1
+              input(type="radio" name="entry.1028411720" id="4" value="4")
+              label(for="4") 4
+              <br><br>
+              input(class="button" type="submit" value="Send" onclick="showMessage()")
+
+        iframe(src="#" id="no-target" name="no-target" style="visibility:hidden")
+
+
+
+
