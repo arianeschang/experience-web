@@ -43,20 +43,11 @@ a.musicLinks, a.themes {
   text-decoration: none;
   color: #000;
 }
-a.musicLinks:hover {
+a:hover {
   text-decoration: underline;
   color: #000;
 }
 
-a.emotional_links:hover {
-  text-decoration: underline;
-  color: #000;
-}
-
-a.themes:hover {
-  text-decoration: underline;
-  color: #b0e0e6;
-}
 a.arrows {
   text-decoration: none;
   font-size: 40px;
