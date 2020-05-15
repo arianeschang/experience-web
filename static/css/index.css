@@ -150,3 +150,8 @@ body {
   background-color: #d0a1a8;
   height: 80vh;
 }
+
+hr {
+  border: 1px solid black;
+
+}
