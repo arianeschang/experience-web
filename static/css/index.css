@@ -39,11 +39,16 @@ p {
   font-weight: regular;
   font-size: 16px;
 }
-a.musicLinks, a.emotional_links, a.themes {
+a.musicLinks, a.themes {
   text-decoration: none;
   color: #000;
 }
-a.musicLinks:hover, a.emotional_links:hover {
+a.musicLinks:hover {
+  text-decoration: underline;
+  color: #000;
+}
+
+a.emotional_links:hover {
   text-decoration: underline;
   color: #000;
 }
