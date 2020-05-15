@@ -39,11 +39,11 @@ p {
   font-weight: regular;
   font-size: 16px;
 }
-a.musicLinks {
+a.musicLinks, a.emotional_links {
   text-decoration: none;
   color: #000;
 }
-a.musicLinks:hover {
+a.musicLinks:hover, , a.emotional_links:hover {
   text-decoration: underline;
   color: #000;
 }
@@ -151,9 +151,5 @@ body {
   height: 80vh;
 }
 
-hr { 
-  background-color: red; 
-  height: 1px; 
-  border: 0; 
-}
+
 
