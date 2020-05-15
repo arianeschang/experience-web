@@ -107,8 +107,21 @@ html
             e.style.color = "powderblue";
           }
 
+          if (class_name == 'emotional'){
+
+            var poems = document.getElementsByClassName('emotional');
+            for (i = 0; i < poems.length; i++) {
+                poems[i].style.display="none";
+            }
+
+            var links = document.getElementsByClassName('nestedMore');
+            for (i = 0; i < links.length; i++) {
+                links[i].style.color = "black";
+            }
+            e.style.color = "powderblue";
+          }
+
           document.getElementById(string).style.display="block";
-  
         }
 
         if (style == "block"){
@@ -399,31 +412,31 @@ html
  
           h3(style='font-family:Roboto;font-weight:400;font-size:20px;line-height:0px') Poetry
           h3(style='font-size:16px')
-            a(onclick="showMore(this, 'undress')" class="nestedMore") Various States of Undress 
+            a(onclick="showMore(this, 'undress', 'emotional')" class="nestedMore") Various States of Undress 
             | | 
-            a(onclick="showMore(this, 'procedure')" class="nestedMore") Procedure 
+            a(onclick="showMore(this, 'procedure', 'emotional')" class="nestedMore") Procedure 
             | | 
-            a(onclick="showMore(this, 'picking')" class="nestedMore") Picking Up The Pieces 
+            a(onclick="showMore(this, 'picking', 'emotional')" class="nestedMore") Picking Up The Pieces 
 
           h3(style='font-family:Roboto;font-weight:400;font-size:20px')
             | Creative Non-Fiction
 
           h3(style='font-size:16px')
-            a(onclick="showMore(this, 'poem1')" class="nestedMore") Various States of Undress 
+            a(onclick="showMore(this, 'poem1', 'emotional')" class="nestedMore") Various States of Undress 
             | | 
-            a(onclick="showMore(this, 'poem2')" class="nestedMore") Procedure 
+            a(onclick="showMore(this, 'poem2', 'emotional')" class="nestedMore") Procedure 
             | | 
-            a(onclick="showMore(this, 'poem3')" class="nestedMore") Picking Up The Pieces 
+            a(onclick="showMore(this, 'poem3', 'emotional')" class="nestedMore") Picking Up The Pieces 
 
           h3(style='font-family:Roboto;font-weight:400;font-size:20px')
             | Fiction
 
           h3(style='font-size:16px')
-            a(onclick="showMore(this, 'poem1')" class="nestedMore") Various States of Undress 
+            a(onclick="showMore(this, 'poem1', 'emotional')" class="nestedMore") Various States of Undress 
             | | 
-            a(onclick="showMore(this, 'poem2')" class="nestedMore") Procedure 
+            a(onclick="showMore(this, 'poem2', 'emotional')" class="nestedMore") Procedure 
             | | 
-            a(onclick="showMore(this, 'poem3')" class="nestedMore") Picking Up The Pieces 
+            a(onclick="showMore(this, 'poem3', 'emotional')" class="nestedMore") Picking Up The Pieces 
 
             #picking(class='nestedMore moreTexts')
               p(style='font-size:14px')
