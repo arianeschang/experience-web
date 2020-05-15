@@ -114,7 +114,7 @@ html
                 poems[i].style.display="none";
             }
 
-            var links = document.getElementsByClassName('nestedMore');
+            var links = document.getElementsByClassName('emotional_links');
             for (i = 0; i < links.length; i++) {
                 links[i].style.color = "black";
             }
@@ -403,17 +403,17 @@ html
           h3(style='font-size:24px;line-height:0px;padding-top:18px') Poetry
 
           h3(style='font-size:16px')
-            a(onclick="showMore(this, 'undress', 'emotional')" class="nestedMore" ) various states of undress 
+            a(onclick="showMore(this, 'undress', 'emotional')" class="emotional_links" ) various states of undress 
             | | 
-            a(onclick="showMore(this, 'procedure', 'emotional')" class="nestedMore") procedure 
+            a(onclick="showMore(this, 'procedure', 'emotional')" class="emotional_links") procedure 
             | | 
-            a(onclick="showMore(this, 'picking', 'emotional')" class="nestedMore") picking up the pieces 
+            a(onclick="showMore(this, 'picking', 'emotional')" class="emotional_links") picking up the pieces 
 
           h3(style='font-size:24px;line-height:0px')
             | Creative Non-Fiction
 
           h3(style='font-size:16px')
-            a(onclick="showMore(this, 'tear', 'emotional')" class="nestedMore") tear 
+            a(onclick="showMore(this, 'tear', 'emotional')" class="emotional_links") tear 
 
 
             #picking(class='nestedMore moreTexts thoughtfuls')
