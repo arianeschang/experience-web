@@ -151,7 +151,9 @@ body {
   height: 80vh;
 }
 
-hr {
-  border: 1px solid black;
-
+hr { 
+  background-color: red; 
+  height: 1px; 
+  border: 0; 
 }
+
